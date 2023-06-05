@@ -75,6 +75,7 @@ public class Main extends PApplet {
         status = 1;
 
         userInput = "";
+
     }
     public void setup() {
         wrappers = new ArrayList<Wrapper>();
@@ -102,6 +103,9 @@ public class Main extends PApplet {
         for (Wrapper w : wrappers) {
             w.display();
         }
+        fill(0);
+        text("Instructions: press k to sort, press s to find, and press n to reset", 50,100);
+
     }
 
         public void settings(){
@@ -146,9 +150,11 @@ public class Main extends PApplet {
 
             } else if(key == 'k') {
                 selectionSort();
-            } else if(key == '\n'){
+            } else if(key == '\n') {
                 target = Integer.parseInt(userInput);
-            } else{
+            } else if(key == 'n'){
+                reset();
+            } else {
                 userInput = userInput + key;
             }
         }
